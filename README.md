@@ -1,28 +1,33 @@
 # Impact of New iPhone Releases on Apple Stock Prices (2023-2024)
 
 ## Introduction
-The primary goal of this project was to analyze the impact of new iPhone releases in **2023** and **2024** on Apple’s stock prices. By combining historical stock price data and additional information from web scraping, we sought to identify trends, correlations, and insights surrounding Apple's major product launches.
+This project analyzes the impact of new iPhone launches on the stock price of Apple Inc. (AAPL) in **2023 and 2024**. The objective is to understand how the release of new iPhone models affects AAPL's stock price, volume, and overall market sentiment. This analysis is focused on the launch dates of new iPhones, with a specific comparison of stock prices and volume trends before and after the launches.
 
 ## Research Question
 **What is the impact of new iPhone model releases in 2023 and 2024 on Apple’s stock prices?**
 
-## Dataset Selection
-We used Apple’s historical stock price data as the primary dataset, focusing on:
-- **Stock metrics:** Opening price, closing price, daily high/low, and trading volume.
-- **Timeframe:** Years 2023 and 2024.
+## Data Sources
+- **Apple Stock Price Data**: Historical stock price data for Apple Inc. was retrieved using the [Yahoo Finance API](https://www.yfinance.io/). The data includes the closing prices, open prices, high and low prices, and trading volume.
+  
+- **iPhone Launch Dates**: Information about the launch dates of iPhone models was scraped from [Wikipedia](https://en.wikipedia.org/wiki/IPhone) using web scraping techniques. These dates are used to identify the impact of new iPhone releases on stock prices.
 
-The dataset was augmented using web scraping to collect information on:
-- Dates of iPhone releases.
-- News headlines and market sentiment surrounding the launches.
+## Steps
 
-## Data Cleaning and Preparation
+## 1. Data Collection
+
+- **Stock Data**: Stock data for Apple was retrieved using the `yfinance` library. The dataset includes historical data from January 2023 to January 2025, which was saved as a CSV file.
+  
+- **iPhone Launch Data**: Using web scraping techniques with BeautifulSoup, the launch dates of iPhone models were extracted from the Wikipedia page dedicated to iPhones. This data was saved into a CSV file for later analysis.
+
+## 2. Data Cleaning and Preparation
 To ensure the dataset was ready for analysis, we performed the following steps:
 1. **Removed extraneous rows and columns.**
 2. **Handled missing values** by filling or removing incomplete data points.
-3. **Converted data types** (e.g., dates to `datetime`, numeric fields to `float`).
-4. **Standardized stock metrics** to include only relevant features.
+3. **Formatting the numerical data to two decimal places for consistency.**
+4. **Converted data types** (e.g., dates to `datetime`, numeric fields to `float`).
+5. **Standardized stock metrics** to include only relevant features.
 
-## Analysis and Visualization
+## 3. Data Analysis and Visualization
 ### Stock Price Trends
 We plotted the stock prices over time to visualize any noticeable fluctuations around iPhone release dates. Key observations:
 - **Short-term spikes**: Stock prices often increased in the days leading up to a launch.
@@ -31,9 +36,6 @@ We plotted the stock prices over time to visualize any noticeable fluctuations a
 ### Volume Analysis
 We analyzed trading volume to assess investor activity. Observations included:
 - **Higher trading volume** on release days, indicating increased market interest.
-
-### Correlation with News Sentiment
-Using web scraping, we gathered news headlines and classified them as positive, neutral, or negative. Positive sentiment often aligned with upward trends in stock prices.
 
 ## Tools Used
 - **Data Analysis:** Python (Pandas, Matplotlib, Seaborn)
@@ -45,17 +47,20 @@ Using web scraping, we gathered news headlines and classified them as positive, 
 1. **Price Increase Before Launches:** Investors showed optimism leading up to iPhone releases, resulting in pre-launch price hikes.
 2. **Slight Dips Post-Launch:** After the initial hype, stock prices stabilized or slightly decreased.
 3. **High Volume on Release Days:** Significant trading activity was observed on and around release dates.
-4. **Sentiment Alignment:** Positive market sentiment and news coverage amplified the stock's upward momentum.
+
 
 ## Conclusion
 The analysis highlights a consistent pattern of increased investor interest and market activity surrounding Apple’s iPhone launches. While stock prices typically rise before a launch, post-launch stabilization is common. Understanding these patterns can provide valuable insights for investors and market analysts.
 
-## Next Steps
-1. Extend the analysis to include other Apple product launches.
-2. Incorporate advanced machine learning models to predict stock movements based on sentiment and historical data.
-3. Analyze the impact of broader market conditions on Apple's stock performance during product releases.
 
----
+
+To run the analysis, the following Python packages are required:
+
+- `pandas`
+- `matplotlib`
+- `requests`
+- `beautifulsoup4`
+- `yfinance`
 
 **Authors:**
 - Davi Alencar
